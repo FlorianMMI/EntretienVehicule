@@ -17,3 +17,5 @@ app.use('/api/stations', stationsRoutes);
 app.listen(port, () => {
   console.log(`🚀 Serveur API démarré sur le port ${port}`);
 });
+
+module.exports = app;
