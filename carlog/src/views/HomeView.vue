@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import StationsView from './StationsView.vue';
 
 const marque = ref('');
 const modele = ref('');
@@ -39,8 +40,8 @@ const enregistrerVoiture = async () => {
 <template>
   <div className="flex justify-center">
     
-    <h4> Mon suivi auto </h4>
-  
+    
+    <StationsView />
   
   </div>
 </template>
