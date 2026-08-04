@@ -1,12 +1,24 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useStations } from '../composables/useStations';
 
+
 const { stations, isLoading, error, loadStations } = useStations();
+const rayon = ref(10); // ref permet à vue de surveiller cette variable 
 
 onMounted(() => {
   loadStations(10);
 });
+
+const naviguerVersWaze = (latitude, longitude) => {
+  // Construction de l'URL Universal Link
+  // ll = latitude,longitude
+  // navigate=yes lance la navigation automatiquement
+  const url = `https://waze.com/ul?ll=${latitude},${longitude}&navigate=yes`;
+  
+  // Ouvre le lien. Sur mobile, le système proposera d'ouvrir Waze.
+  window.open(url, '_blank');
+};
 </script>
 
 <template>
@@ -22,6 +34,7 @@ onMounted(() => {
       >
         {{ isLoading ? 'Recherche...' : 'Actualiser' }}
       </button>
+      <input v-model='rayon' @change="loadStations(rayon)" class="border-gray-400 border rounded px-2" type="number">
     </header>
 
     <!-- Alertes (Erreur) -->
@@ -80,6 +93,12 @@ onMounted(() => {
               <span class="font-medium text-gray-700">E85</span>
               <span class="bg-green-100 text-green-800 font-bold px-2 py-1 rounded text-sm">{{ station.e85_prix }} €</span>
             </li>
+
+            <button class="bg-blue-500 p-2 rounded hover:bg-blue-600 transition-all cursor-pointer" @click="naviguerVersWaze(station.geom.lat, station.geom.lon )">
+            
+              <img src="/icon/navigation.svg" alt="Navigation" class="w-5 h-5" />
+
+          </button>
 
           </ul>
         </div>
