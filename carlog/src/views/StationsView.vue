@@ -229,13 +229,13 @@ const calculerDistance = (lat1, lon1, lat2, lon2) => {
             </div>
             
             <button 
-              class="bg-blue-500 p-2 rounded-lg shadow-sm hover:bg-blue-600 hover:shadow transition-all cursor-pointer flex items-center justify-center" 
+              class="bg-blue-400 p-2 rounded-lg shadow-sm hover:bg-blue-500 hover:shadow transition-all cursor-pointer flex items-center justify-center" 
               @click="naviguerVersWaze(station.geom.lat, station.geom.lon)"
               title="Y aller avec Waze"
             >
               <img src="/icon/navigation.svg" alt="Navigation" class="w-5 h-5" />
             </button>
-          
+
           </div>
 
           
