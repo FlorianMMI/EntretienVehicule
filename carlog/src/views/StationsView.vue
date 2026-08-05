@@ -225,7 +225,7 @@ const calculerDistance = (lat1, lon1, lat2, lon2) => {
           <!-- Bloc Navigation et Distance -->
           <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
             <div v-if="userLat && userLon" class="text-gray-500 text-sm font-bold flex items-center gap-1">
-              À {{ calculerDistance(userLat, userLon, station.geom.lat, station.geom.lon) }} km
+              À {{ calculerDistance(userLat, userLon, station.geom.lat, station.geom.lon) }} km (vol d'oiseau)
             </div>
             
             <button 
